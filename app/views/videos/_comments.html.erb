@@ -1,0 +1,9 @@
+<ul class="collection">
+	<% @comments.each do |comment|%>
+		<li class="collection-item avatar">
+    	<span class="title"><%=comment.author%></span>
+    	<p><%=comment.text%></p>
+    	<div class="secondary-content"><%=comment.date.strftime("%d/%m/%y")%></div>
+    </li>
+	<%end%>	 
+</ul>

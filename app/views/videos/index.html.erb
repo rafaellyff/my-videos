@@ -1,0 +1,30 @@
+<h4>Lista de Vídeos</h4>
+
+<p id="notice"><%= notice %></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Categoria</th>
+      <th>Título</th>
+      <th>URL do Vídeo no Youtube</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @videos.each do |video| %>
+      <tr>
+        <td><span class="new badge" data-badge-caption=""> <%= video.category.name %></span></td>
+        <td><%= video.title %></td>
+        <td><%= video.youtube_url %></td>
+        <td><%= link_to 'Ver', video, class:"link" %></td>
+        <td><%= link_to 'Editar', edit_video_path(video), class:"link" %></td>
+        <td><%= link_to 'Deletar', video, method: :delete, data: { confirm: 'Tem certeza que deseja deletar esse vídeo?' }, class:"link" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<%= link_to 'Adicionar Vídeo', new_video_path ,  class:"btn waves-effect waves-light"%>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vídeo Fácil</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => false %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <div class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper">
+        <a href="/" class="brand-logo center">Vídeo Fácil</a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="/categories"><i class="material-icons">class</i></a></li>
+          <li><a href="/videos"><i class="material-icons">ondemand_video</i></a></li>
+      </ul>
+      </div>
+    </nav>
+  </div>
+        
+  <div class="container">
+    <%= yield %>
+  </div>
+  
+</body>
+</html>

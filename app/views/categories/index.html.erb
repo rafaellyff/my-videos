@@ -1,0 +1,29 @@
+<h4>Lista de Categorias</h4>
+
+<p id="notice"><%= notice %></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Favorita?</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @categories.each do |category| %>
+      <tr>
+        <td><%= category.name %></td>
+        <td><%= category.favorite == true ? "<i class='material-icons'>check</i>".html_safe : "<i class='material-icons'>close</i>".html_safe  %></td>
+        <td><%= link_to 'Ver', category, class:"link" %></td>
+        <td><%= link_to 'Editar', edit_category_path(category), class:"link" %></td>
+        <td><%= link_to 'Deletar', category, method: :delete, data: { confirm: 'Tem certeza que deseja deletar essa categoria?' } , class:"link"%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Adicionar Categoria', new_category_path ,  class:"btn waves-effect waves-light"%>

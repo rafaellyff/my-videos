@@ -1,0 +1,16 @@
+<h4>Ver Categoria</h4>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @category.name %>
+</p>
+
+<p>
+  <strong>Favorita?</strong><br/>
+  <%= @category.favorite == true ? "<i class='material-icons'>check</i>".html_safe : "<i class='material-icons'>close</i>".html_safe  %>
+</p>
+
+<%= link_to 'Editar', edit_category_path(@category), class:"link" %> |
+<%= link_to 'Voltar', categories_path, class:"link" %>

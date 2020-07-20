@@ -1,0 +1,32 @@
+<%= form_for(@video) do |f| %>
+  <% if @video.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@video.errors.count, "error") %> prohibited this video from being saved:</h2>
+
+      <ul>
+      <% @video.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title, "Título*" %>
+    <%= f.text_field :title, required: true  %>
+  </div>
+  <div class="field">
+    <%= f.label :youtube_url, "Link do YouTube*" %>
+    <%= f.text_field :youtube_url, required: true  %>
+  </div>
+
+  <div class="field">
+    <%= f.label :category_id, "Categoria*" %>
+    <%= f.select(:category_id, Category.all.collect { |c| [c.name, c.id] }, {:prompt => 'Selecione uma opção'}, required: true )  %>
+  </div>
+  <div class="actions">
+    <button class="btn waves-effect waves-light" type="submit" name="action">Salvar
+      <i class="material-icons right">send</i>
+    </button>    
+  </div>
+<% end %>
