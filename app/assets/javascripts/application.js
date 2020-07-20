@@ -18,3 +18,27 @@
 $(document).ready(function() {
   $("select").formSelect();
 });
+
+// Create Comments
+
+$(document).ready(function() {
+  $("#send").click(function() {
+    var author = $("#author").val();
+    var text = $("#text").val();
+    var video_id = $("#video_id").val();
+
+    if (author != "" && text != "") {
+      $.ajax({
+        method: "POST",
+        url: "/videos/create_comment",
+        data: { author: author, text: text, video_id: video_id }
+      }).done(function(retorno) {
+        $("#list-comments").html(retorno);
+        $("#author").val("");
+        $("#text").val("");
+      });
+    } else {
+      alert("Você esqueceu de preencher algum campo!");
+    }
+  });
+});
