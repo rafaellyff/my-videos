@@ -15,7 +15,7 @@
   <tbody>
     <% @videos.each do |video| %>
       <tr>
-        <td><span class="new badge" data-badge-caption=""> <%= video.category.name %></span></td>
+        <td><span class="new badge" data-badge-caption=""> <%= video.category.nil? ? "Sem categoria" : video.category.name %></span></td>
         <td><%= video.title %></td>
         <td><%= video.youtube_url %></td>
         <td><%= link_to 'Ver', video, class:"link" %></td>

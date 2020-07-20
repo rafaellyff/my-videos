@@ -6,7 +6,8 @@
   <strong>Título:</strong>
   <%= @video.title %>
 </h5>
-<span class="new badge" data-badge-caption="">Categoria: <%= @video.category.name %></span>
+<span class="new badge" data-badge-caption="">Categoria: <%= @video.category.nil? ? "Sem categoria" : @video.category.name %></span>
+
 <p>
   <strong>URL do vídeo no Youtube:</strong>
   <%= @video.youtube_url %>

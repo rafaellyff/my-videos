@@ -2,8 +2,9 @@
 	<small> CATEGORIAS</small>
 	<div class="collection">
 		<%= link_to "Favoritas" , favorites_videos_path, class: "collection-item active"  %>
-			<% @categories.each do |category| %>    
-					<%= link_to category.name , by_category_videos_path(:id => category.id), class: "collection-item"  %>
-			<%end%>
+		<% @categories.each do |category| %>    
+			<%= link_to category.name , by_category_videos_path(:id => category.id), class: "collection-item"  %>
+		<%end%>
+		<%= link_to "Sem Categoria" , by_category_videos_path(:id => nil), class: "collection-item"  %>
 	</div>
 </div>

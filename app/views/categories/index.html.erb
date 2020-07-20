@@ -18,7 +18,7 @@
         <td><%= category.favorite == true ? "<i class='material-icons'>check</i>".html_safe : "<i class='material-icons'>close</i>".html_safe  %></td>
         <td><%= link_to 'Ver', category, class:"link" %></td>
         <td><%= link_to 'Editar', edit_category_path(category), class:"link" %></td>
-        <td><%= link_to 'Deletar', category, method: :delete, data: { confirm: 'Tem certeza que deseja deletar essa categoria?' } , class:"link"%></td>
+        <td><%= link_to 'Deletar', category, method: :delete, data: { confirm: 'Tem certeza que deseja deletar essa categoria? Isso remove a categoria de todos os vídeos associados ela.' } , class:"link"%></td>
       </tr>
     <% end %>
   </tbody>

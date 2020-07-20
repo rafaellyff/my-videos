@@ -69,8 +69,13 @@ class VideosController < ApplicationController
 
   def by_category
     @categories = Category.all
-    @category = Category.select(:name).find(params[:id]).name
-    @videos = Video.where(category_id: params[:id])
+    unless params[:id].blank?
+      @category = Category.select(:name).find(params[:id]).name
+      @videos = Video.where(category_id: params[:id])
+    else
+      @category = "Sem categoria" 
+      @videos = Video.where(category_id: nil)
+    end
   end
 
   def create_comment
